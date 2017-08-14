@@ -3,6 +3,7 @@ Choose a font from google fonts to use for the text in the hero
 and use @import to include in this style sheet. The font in the image is "Bangers"
 */
 
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
 
 /*
 - make the masthead a flexbox container
@@ -13,6 +14,17 @@ and use @import to include in this style sheet. The font in the image is "Banger
 - when scrolling make sure there is no gap between the masthead and top of the page
 */
 
+#masthead {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 /*
 - make the hero div a flexbox container
@@ -24,44 +36,87 @@ and use @import to include in this style sheet. The font in the image is "Banger
 - adjust the top margin of the hero to account for the fixed masthead
 */
 
+#hero {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  padding: 100px;
+  font-family: "Just Another Hand";
+}
 
 /*
-- Make the cards div a flexbox container
-- make sure the content is centered along the main axis using flexbox
-- reverse the order of the cards using flexbox (should become chili aruna italy spain)
-- make sure when the page shrinks the cards wrap and stack on eachother
+- ^Make the cards div a flexbox container
+- ^make sure the content is centered along the main axis using flexbox
+- ^reverse the order of the cards using flexbox (should become chili aruna italy spain)
+- ^make sure when the page shrinks the cards wrap and stack on eachother
 */
 
+#cards {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /*
-- Make each individual card a flexbox container
-- using flexbox make sure the content in each card is stacked and not in a row
-- make sure the content is centered in each card using flexbox
-- make sure the information in the card is at the bottom of the card using flexbox
+- ^Make each individual card a flexbox container
+- ^using flexbox make sure the content in each card is stacked and not in a row
+- ^make sure the content is centered in each card using flexbox
+- ^make sure the information in the card is at the bottom of the card using flexbox
   (there is bottom padding applied in common.css to keep it off the very bottom so it looks right)
 */
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 /*
-- Make the travel table div a flexbox container
+- ^Make the travel table div a flexbox container
 - using flexbox make sure the content is stacked and not in a row
-- make sure the content is centered in each card using flexbox
+- ^make sure the content is centered in each card using flexbox
 */
 
+#travel-table {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
 /*
-- Make the footer div a flexbox container
+- ^Make the footer div a flexbox container
 - make sure the copyright displays on the left and the social links display on the right using flexbox
 - make sure the content is vertically centered in the here div using flexbox
 */
 
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
 
 /*
 MEDIUM CHALLENGE:
-Using media queries, hide the national bird column in the table when the screen is at a 
+Using media queries, hide the national bird column in the table when the screen is at a
 max width of 800px. Hide both the national bird and population column when the
 screen is at a max width of 600px
 
 HINT:
-leverage the classes .bird and .population 
+leverage the classes .bird and .population
 */
+
+
+@media (max-width: 800px) {
+  .bird {
+      display: none;
+    }
+}
+
+@media (max-width: 600px) {
+  .population {
+    display: none;
+  }
+}
